@@ -1,7 +1,54 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "Seeds: start"
+
+Resource.create!(
+  title: "Try Ruby",
+  description: "Got 15 minutes? Learn the basic building blocks of the Ruby programming language, all in the browser.",
+  url: "http://tryruby.org"
+)
+
+Resource.create!(
+  title: "Codewars",
+  description: "Improve your skills by training with others on real code challenges",
+  url: "http://www.codewars.com/"
+)
+
+Resource.create!(
+  title: "freeCodeCamp",
+  description: "Learn to code by helping nonprofits. Build your full stack web development portfolio today.",
+  url: "http://freecodecamp.com/"
+)
+
+Category.create!(
+  title: "JavaScript",
+  slug: "js"
+)
+
+Category.create!(
+  title: "Ruby",
+  slug: "ruby"
+)
+
+Category.create!(
+  title: "Web development",
+  slug: "web-dev"
+)
+
+Categorisation.create!(
+  resource: Resource.find(1),
+  category: Category.find(2)
+)
+
+Categorisation.create!(
+  resource: Resource.find(2),
+  category: Category.find(1)
+)
+Categorisation.create!(
+  resource: Resource.find(2),
+  category: Category.find(2)
+)
+Categorisation.create!(
+  resource: Resource.find(3),
+  category: Category.find(1)
+)
+
+puts "Seeds: done"
