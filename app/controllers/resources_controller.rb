@@ -5,6 +5,9 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.all
+    if params[:search]
+      @resources = Resource.search_by_user(params[:search]).order("created_at DESC")
+    end
   end
 
   # GET /resources/1

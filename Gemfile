@@ -17,7 +17,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'decent_exposure'
 gem 'devise'
 gem 'pg'
+gem 'pg_search'
 gem 'rails_12factor'
+gem "font-awesome-rails"
 
 
 group :development, :test do
