@@ -16,7 +16,7 @@
 </div>
 </aside>
 
-<section class="col-md-9">
+
 <% unless @search_phrase.nil? %>
   <div class="">
     <h2> Search results for "<%= @search_phrase %> "</h2>
@@ -25,60 +25,20 @@
     <% end %>
    </div>
 
+  <div class="col-md-9">
    <% if @resources_searched.any? %>
-     <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @resources_searched.each do |resource| %>
-          <tr>
-            <td><%= resource.title %></td>
-            <td><%= resource.description %></td>
-            <td><%= link_to 'Show', resource %></td>
-            <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-            <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+     <%= render 'resources', resources: @resources_searched %>
   <% end %>
-
+  </div>
 <% end %>
 
 <% unless (@resources.nil?) %>
+<div class="col-md-9">
   <h1>Listing Resources</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @resources.each do |resource| %>
-        <tr>
-          <td><%= resource.title %></td>
-          <td><%= resource.description %></td>
-          <td><%= link_to 'Show', resource %></td>
-          <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-          <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+      <%= render 'resources', resources: @resources %>
+</div>
 <% end %>
-</section>
+
 
 <br>
 
