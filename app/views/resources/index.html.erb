@@ -1,5 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<aside class="col-md-3">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Choose a category
+    <span class="caret"></span>
+    </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%= link_to "All categories", categories_path %></li>
+    <li role="separator" class="divider"></li>
+    <% @categories.each do |category| %>
+      <li><%= link_to "#{category.title}", category_slug_path(category.slug) %></li>
+    <% end %>
+  </ul>
+</div>
+</aside>
+
+<section class="col-md-9">
 <% unless @search_phrase.nil? %>
   <div class="">
     <h2> Search results for "<%= @search_phrase %> "</h2>
@@ -61,6 +78,8 @@
   </table>
 
 <% end %>
+</section>
+
 <br>
 
 <%= link_to 'New Resource', new_resource_path %>

@@ -14,6 +14,7 @@ class ResourcesController < ApplicationController
       @resources = Resource.all
     end
 
+    @categories = Category.all
   end
 
   # GET /resources/1
