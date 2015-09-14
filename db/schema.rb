@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909134658) do
+ActiveRecord::Schema.define(version: 20150914112207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title"
-    t.string   "slug"
+    t.string   "title",      null: false
+    t.string   "slug",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "categorisations", force: :cascade do |t|
     t.integer  "resource_id"
@@ -34,12 +36,14 @@ ActiveRecord::Schema.define(version: 20150909134658) do
   add_index "categorisations", ["resource_id"], name: "index_categorisations_on_resource_id", using: :btree
 
   create_table "resources", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "url"
+    t.string   "url",         null: false
   end
+
+  add_index "resources", ["url"], name: "index_resources_on_url", unique: true, using: :btree
 
   add_foreign_key "categorisations", "categories"
   add_foreign_key "categorisations", "resources"
