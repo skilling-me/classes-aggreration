@@ -23,11 +23,11 @@
 </aside>
 
 <section class="col-md-9">
-   <% if @resources_searched.any? %>
+   <% unless @resources_searched.nil? %>
      <%= render 'resources', resources: @resources_searched %>
   <% end %>
 
-<% unless (@resources.nil?) %>
+<% unless @resources.nil? %>
   <h1>Listing Resources</h1>
       <%= render 'resources', resources: @resources %>
 <% end %>

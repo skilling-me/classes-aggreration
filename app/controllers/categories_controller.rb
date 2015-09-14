@@ -9,8 +9,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   # GET /categories/1.json
-  def show
+  def show_by_slug
     @category = Category.find_by_slug(params[:slug])
+    render :show
+  end
+
+
+  def show
   end
 
   # GET /categories/new
@@ -65,11 +70,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      unless params[:slug].nil?
-        @category = Category.find_by_slug(params[:slug])
-      else
         @category = Category.find(params[:id])
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

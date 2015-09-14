@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/contact'
 
-  get 'categories/:slug' => 'categories#show', as: 'category_slug'
+  get 'categories/name-:slug' => 'categories#show_by_slug', as: 'category_slug'
 
   resources :categories
   resources :resources
