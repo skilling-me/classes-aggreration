@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
+<% unless @search_phrase.nil? %>
+    <h2> Search results for "<%= @search_phrase %> "</h2>
+    <% unless @resources_searched.any? %>
+      <h2> : unfortunately your search did not match any courses.</h2>
+    <% end %>
+<% end %>
 
-<aside class="col-md-3">
+<aside class="col-md-3" id="aside">
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Choose a category
@@ -16,30 +22,16 @@
 </div>
 </aside>
 
-
-<% unless @search_phrase.nil? %>
-  <div class="">
-    <h2> Search results for "<%= @search_phrase %> "</h2>
-    <% unless @resources_searched.any? %>
-      <h2> : unfortunately your search did not match any courses.</h2>
-    <% end %>
-   </div>
-
-  <div class="col-md-9">
+<section class="col-md-9">
    <% if @resources_searched.any? %>
      <%= render 'resources', resources: @resources_searched %>
   <% end %>
-  </div>
-<% end %>
 
 <% unless (@resources.nil?) %>
-<div class="col-md-9">
   <h1>Listing Resources</h1>
       <%= render 'resources', resources: @resources %>
-</div>
 <% end %>
-
-
+</section>
 <br>
 
 <%= link_to 'New Resource', new_resource_path %>
