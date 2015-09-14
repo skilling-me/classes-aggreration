@@ -1,4 +1,8 @@
 <div>
     <span><%= link_to resource.title, resource %> </span> | ***** | 5 comments
     <p><%= resource.description %> </p>
+    <p><span class="label label-primary"> <%= display_tags(resource.cost_list) %> </span>
+       <span class="label label-success"> <%= display_tags(resource.type_list) %> </span>
+       <span class="label label-warning"> <%= display_tags(resource.level_list) %> </span>
+    </p>
 </div>

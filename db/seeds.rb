@@ -51,4 +51,23 @@ Categorisation.create!(
   category: Category.find(1)
 )
 
+puts "============Adding tags============="
+@resource = Resource.find(1)
+@resource.cost_list.add('free')
+@resource.type_list.add('interactive tutorial')
+@resource.level_list.add('for dummies')
+@resource.save
+
+@resource = Resource.find(2)
+@resource.cost_list.add('free')
+@resource.type_list.add('quizes')
+@resource.level_list.add('for dummies', 'intermediate', 'advanced')
+@resource.save
+
+@resource = Resource.find(3)
+@resource.cost_list.add('free')
+@resource.type_list.add('bootcamp')
+@resource.level_list.add('for dummies', 'intrmediate')
+@resource.save
+
 puts "Seeds: done"

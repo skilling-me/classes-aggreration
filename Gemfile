@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 
-
-
 gem 'rails', '4.2.1'
-
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
@@ -19,8 +16,8 @@ gem 'devise'
 gem 'pg'
 gem 'pg_search'
 gem 'rails_12factor'
-gem "font-awesome-rails"
-
+gem 'font-awesome-rails'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'byebug'

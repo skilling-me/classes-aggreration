@@ -16,6 +16,22 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :cost_list, "Costs, separated by commas" %><br>
+    <%= f.text_field :cost_list %>
+  </div>
+  <div class="field">
+    <%= f.label :level_list, "Levels, separated by commas" %><br>
+    <%= f.text_field :level_list %>
+  </div>
+  <div class="field">
+    <%= f.label :type_list, "Types, separated by commas" %><br>
+    <%= f.text_field :type_list %>
+  </div>
+    <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_area :url %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>

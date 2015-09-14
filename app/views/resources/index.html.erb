@@ -20,6 +20,22 @@
     <% end %>
   </ul>
 </div>
+
+  <div id="tag_cloud">
+    <h3> Our tags cloud </h3>
+    <% tag_cloud(Resource.cost_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+    <% end %>
+    <% tag_cloud(Resource.level_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+    <% end %>
+     <% tag_cloud(Resource.type_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+    <% end %>
+    <% tag_cloud(Resource.tag_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+    <% end %>
+  </div>
 </aside>
 
 <section class="col-md-9">

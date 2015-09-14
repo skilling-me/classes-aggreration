@@ -15,4 +15,8 @@ class Resource < ActiveRecord::Base
     :using => {
       tsearch: { prefix: true }
     }
+
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :cost, :type, :level
+
 end
