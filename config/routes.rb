@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   get 'static_pages/home'
 
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
   get 'categories/:slug' => 'categories#show_by_slug', as: 'category_slug'
 
   resources :categories
-  resources :resources
+  resources :resources do
+    resources :reviews, except: [:show, :index]
+  end
 
   root 'static_pages#home'
 

@@ -1,0 +1,5 @@
+<div class="">
+  <strong><%= review.user.first_name %></strong> | <span class="label label-danger"> <%= review.rating %> </span><br />
+  <%= h(review.comment) %> <br />
+  Posted <%= time_ago_in_words(review.created_at)%>
+</div>

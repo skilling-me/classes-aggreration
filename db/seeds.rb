@@ -70,4 +70,19 @@ puts "============Adding tags============="
 @resource.level_list.add('for dummies', 'intrmediate')
 @resource.save
 
+
+puts "============Adding users============="
+User.create!(
+  email: 'admin@admin.com',
+  password: 'adminadmin',
+  first_name: 'Root',
+  admin: true
+  )
+User.create!(
+  email: 'user@example.com',
+  password: 'useruser',
+  first_name: 'User',
+  last_name: 'Superuser'
+  )
+
 puts "Seeds: done"

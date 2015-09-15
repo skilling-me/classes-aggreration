@@ -1,6 +1,7 @@
 class Resource < ActiveRecord::Base
   has_many :categorisations, dependent: :destroy
   has_many :categories, through: :categorisations
+  has_many :reviews, dependent: :destroy
 
   validates :url, uniqueness: true, presence: true
   validates :title, presence: true

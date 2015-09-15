@@ -10,6 +10,22 @@
   <%= @resource.description %>
 </p>
 
+<p>
+  <strong>Reviews:</strong>
+  <% if @resource.reviews.blank? %>
+    <h3> No reviews just yet, would you like to add the first? </h3>
+  <% else %>
+    <% @resource.reviews.reverse.each do |review| %>
+      <%= render 'reviews/review', review: review %>
+    <% end %>
+  <% end %>
+  <%= render 'reviews/form' %>
+
+</p>
+
+
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Destroy', @resource, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', resources_path %>
+
+
