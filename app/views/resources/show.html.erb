@@ -28,4 +28,18 @@
 <%= link_to 'Destroy', @resource, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', resources_path %>
 
-
+<script>
+    $('.star-rating-readonly').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+<script>
+  $('#star-rating-add').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

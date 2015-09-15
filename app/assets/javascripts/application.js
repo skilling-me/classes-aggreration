@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require_tree ../../../vendor/assets/javascripts/.
 
