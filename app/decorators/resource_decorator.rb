@@ -1,4 +1,4 @@
-class ResourceDecorator < BaseDecorator
+class ResourceDecorator < ApplicationDecorator
   def avg_rating
     avg = resource.reviews.average(:rating)
     if avg.nil?

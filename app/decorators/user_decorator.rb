@@ -1,4 +1,4 @@
-class UserDecorator < BaseDecorator
+class UserDecorator < ApplicationDecorator
   def name
     "#{first_name} #{last_name}"
   end
