@@ -18,6 +18,7 @@ gem 'pg_search'
 gem 'rails_12factor'
 gem 'font-awesome-rails'
 gem 'acts-as-taggable-on'
+gem 'draper'
 
 group :development do
   gem 'better_errors'

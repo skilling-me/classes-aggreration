@@ -1,5 +1,5 @@
 <div class="">
-  <strong><%= review.user.first_name %></strong> | <div class="star-rating-readonly" data-score= <%= review.rating %> ></div><br />
+  <strong><%= review.user.decorate.name %></strong> | <div class="star-rating-readonly" data-score= <%= review.rating %> ></div><br />
   <%= h(review.comment) %> <br />
   Posted <%= time_ago_in_words(review.created_at)%>
 </div>

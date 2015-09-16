@@ -1,5 +1,7 @@
 <div>
-    <span><%= link_to resource.title, resource %> </span> | ***** | 5 comments
+    <span><%= link_to resource.title, resource %> </span> |
+    <div class="star-rating-readonly" data-score= <%= resource.decorate.avg_rating %> ></div> |
+    <%= resource.decorate.count_comments %> reviews
     <p><%= resource.description %> </p>
     <p><span class="label label-primary"> <%= display_tags(resource.cost_list) %> </span>
        <span class="label label-success"> <%= display_tags(resource.type_list) %> </span>

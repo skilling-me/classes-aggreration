@@ -36,4 +36,19 @@
 </div>
 
 </body>
+<script>
+    $('.star-rating-readonly').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+
+  $('#star-rating-add').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+
+</script>
 </html>
