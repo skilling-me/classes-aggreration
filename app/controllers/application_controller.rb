@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
       u.permit(sanitized_params)
     end
   end
+
 end

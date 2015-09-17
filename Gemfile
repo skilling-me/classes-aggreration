@@ -13,12 +13,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'decent_exposure'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem "omniauth-google-oauth2"
 gem 'pg'
 gem 'pg_search'
 gem 'rails_12factor'
 gem 'font-awesome-rails'
 gem 'acts-as-taggable-on'
 gem 'draper'
+gem 'figaro'
+
 
 group :development do
   gem 'better_errors'
