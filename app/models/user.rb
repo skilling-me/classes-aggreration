@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Ayou@example.com/
 
   # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable
+  #  :lockable, :timeoutable, :confirmable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :reviews, dependent: :destroy
   validates :first_name, presence: true
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        user.skip_confirmation!
+        user.skip_confirmation! if user.respond_to?(:skip_confirmation)
         user.save!
       end
     end

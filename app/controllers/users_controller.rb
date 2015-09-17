@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
       if @user.update(user_params)
-        @user.skip_reconfirmation!
+        @user.skip_reconfirmation! if @user.respond_to?(:skip_reconfirmation!)
         sign_in(@user, :bypass => true)
         # provide an normal url here.... ( maybe from session? )
         redirect_to :back, notice: 'Your profile was successfully updated.'
